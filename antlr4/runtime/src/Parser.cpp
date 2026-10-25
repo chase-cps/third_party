@@ -143,6 +143,9 @@ Token* Parser::matchWildcard() {
 
 tree::ParseTree * Parser::setBuildParseTree(bool buildParseTrees) {
   this->_buildParseTrees = buildParseTrees;
+  // The function must return a value: falling off its end is undefined
+  // behavior, and makes the parser crash when compiled with -O2 or higher.
+  return nullptr;
 }
 
 bool Parser::getBuildParseTree() {
